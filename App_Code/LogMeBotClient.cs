@@ -53,20 +53,22 @@ namespace LogMeBot
     public class LogMeBotClient
     {
         private const string SessionStateKey = "LogMeBot.LogMeBotClient.State";
+        private const string BasePath = "http://www.logmebot.com/";
+        //private const string BasePath = "http://localhost:3979/";
 
         public string LogonEndpoint
         {
-            get { return "https://www.logmebot.com/account/logon"; }
+            get { return BasePath + "account/logon"; }
         }
 
         public string TokenEndpoint
         {
-            get { return "http://www.logmebot.com/authbot/oauth/AccessToken"; }
+            get { return BasePath + "authbot/oauth/AccessToken"; }
         }
 
         public string MeEndpoint
         {
-            get { return "http://www.logmebot.com/authbot/oauth/Me"; }
+            get { return BasePath + "authbot/oauth/Me"; }
         }
 
         private string clientId = "";
@@ -209,7 +211,6 @@ namespace LogMeBot
                 retreiveResponse.Close();
 
                 res = serializer.Deserialize<MeResult>(json);
-                //SaveToken();
             }
             catch (WebException wex)
             {

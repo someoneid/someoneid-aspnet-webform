@@ -13,7 +13,7 @@ public partial class _Default : System.Web.UI.Page
         logMeBotClient = new LogMeBot.LogMeBotClient(
             ConfigurationManager.AppSettings["LogMeBotClientId"],
             ConfigurationManager.AppSettings["LogMeBotClientSecret"],
-            "http://localhost:63645");
+            ConfigurationManager.AppSettings["LogMeBotCallbackuri"]);
 
 
         if (Request.Params["code"] != null)
@@ -33,6 +33,9 @@ public partial class _Default : System.Web.UI.Page
                 + "Username: " + me.Username + "<br>"
                 + "Email: " + me.Email + "<br>"
                 + "ExpiresIn: " + me.ExpiresIn.ToString() + "<br>";
+
+            //************TODO********
+            //your login logic here
         }
         else
         {

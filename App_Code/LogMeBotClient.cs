@@ -137,12 +137,15 @@ namespace LogMeBot
         /// </summary>
         /// <param name="code"></param>
         /// <returns></returns>
-        public string GetAccessToken(string code)
+        public string GetAccessToken(string code, string state)
         {
             int statusCode = 0;
 
             try
             {
+                if (state != this.State)
+                    throw new LogMeBotException(401, "Invalid state");
+
                 var accessTokenResult = new AccessTokenResult();
                 var serializer = new JavaScriptSerializer();
 

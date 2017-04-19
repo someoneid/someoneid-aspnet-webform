@@ -16,30 +16,38 @@ public partial class _Default : System.Web.UI.Page
             ConfigurationManager.AppSettings["LogMeBotCallbackuri"]);
 
 
-        if (Request.Params["code"] != null)
+        try
         {
-            if (string.IsNullOrEmpty(logMeBotClient.AccessToken))
+            if (Request.Params["code"] != null)
             {
-                string token = logMeBotClient.GetAccessToken(Request.Params["code"]);
+                if (string.IsNullOrEmpty(logMeBotClient.AccessToken))
+                {
+                    string token = logMeBotClient.GetAccessToken(
+                        Request.Params["code"], Request.Params["state"]);
+                }
+            }
+
+            if (!string.IsNullOrEmpty(logMeBotClient.AccessToken))
+            {
+                var me = logMeBotClient.GetMe(logMeBotClient.AccessToken);
+
+                Description += "LogMeBot authorized. <br>"
+                    + "Token: " + logMeBotClient.AccessToken + "<br>"
+                    + "Username: " + me.Username + "<br>"
+                    + "Email: " + me.Email + "<br>"
+                    + "ExpiresIn: " + me.ExpiresIn.ToString() + "<br>";
+
+                //************TODO********
+                //your login logic here
+            }
+            else
+            {
+                Description = "LogMeBot Not authorized";
             }
         }
-
-        if (!string.IsNullOrEmpty(logMeBotClient.AccessToken))
+        catch(Exception ex)
         {
-            var me = logMeBotClient.GetMe(logMeBotClient.AccessToken);
-
-            Description += "LogMeBot authorized. <br>"
-                + "Token: " + logMeBotClient.AccessToken + "<br>"
-                + "Username: " + me.Username + "<br>"
-                + "Email: " + me.Email + "<br>"
-                + "ExpiresIn: " + me.ExpiresIn.ToString() + "<br>";
-
-            //************TODO********
-            //your login logic here
-        }
-        else
-        {
-            Description = "LogMeBot Not authorized";
+            Description = ex.Message;
         }
 
     }

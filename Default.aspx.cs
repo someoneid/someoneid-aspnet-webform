@@ -32,9 +32,10 @@ public partial class _Default : System.Web.UI.Page
                 var me = logMeBotClient.GetMe(logMeBotClient.AccessToken);
 
                 Description += "LogMeBot authorized. <br>"
-                    + "Token: " + logMeBotClient.AccessToken + "<br>"
-                    + "Username: " + me.Username + "<br>"
+                    + "Token (always keep safe and secret): " + logMeBotClient.AccessToken + "<br>"
+                    + "UserId: " + me.UserId + "<br>"
                     + "Email: " + me.Email + "<br>"
+                    + "Nickname: " + me.Nickname + "<br>"
                     + "ExpiresIn: " + me.ExpiresIn.ToString() + "<br>";
 
                 //************TODO********

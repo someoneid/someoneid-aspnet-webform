@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logmebot.Net;
+using System;
 using System.Configuration;
 
 
@@ -6,14 +7,14 @@ public partial class _Default : System.Web.UI.Page
 {
 
     protected string Description;
-    private LogMeBot.LogMeBotClient logMeBotClient;
+    private LogmebotClient logMeBotClient;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        logMeBotClient = new LogMeBot.LogMeBotClient(
-            ConfigurationManager.AppSettings["LogMeBotClientId"],
-            ConfigurationManager.AppSettings["LogMeBotClientSecret"],
-            ConfigurationManager.AppSettings["LogMeBotCallbackuri"]);
+        logMeBotClient = new LogmebotClient();
+            //ConfigurationManager.AppSettings["LogMeBotClientId"],
+            //ConfigurationManager.AppSettings["LogMeBotClientSecret"],
+            //ConfigurationManager.AppSettings["LogMeBotCallbackuri"]);
 
 
         try

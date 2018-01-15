@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "csharp-webform-sample", ".", "{061A38EF-9088-4EB3-B9A7-25F39E821529}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "csharp-webform-sample", ".", "{7A86907E-0818-423F-93EF-C0820B3C134C}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_63645"
 		Debug.AspNetCompiler.PhysicalPath = "..\csharp-webform-sample\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63645\"
@@ -29,8 +29,8 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{061A38EF-9088-4EB3-B9A7-25F39E821529}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{061A38EF-9088-4EB3-B9A7-25F39E821529}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A86907E-0818-423F-93EF-C0820B3C134C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A86907E-0818-423F-93EF-C0820B3C134C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
